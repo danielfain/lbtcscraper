@@ -31,7 +31,9 @@ while True:
         mail.sendmail('danieljsocial@gmail.com', 'daniel11fain@gmail.com', content)
         mail.close()
 
+        print("\n")
         time.sleep(180)
     else:
         print(str(datetime.now()))
+        print("\n")
         time.sleep(60)
