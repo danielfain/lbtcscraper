@@ -4,6 +4,9 @@ import time
 from datetime import datetime
 import smtplib
 
+# Known scammers I don't want to list
+blacklist = ['GemsBitcoins', 'TechnoTrade']
+
 while True:
     r = requests.get("https://localbitcoins.com/sell-bitcoins-online/US/united-states/ebay-gift-card-code/.json")
     data = r.json()
@@ -14,9 +17,14 @@ while True:
     # This prints relevant JSON data
     for item in data["data"]["ad_list"]:
         price = item["data"]["temp_price"]
-        print("$" + price)
+        trades = item["data"]["profile"]["trade_count"]
+        user = item["data"]["profile"]["username"]
+        if user not in blacklist:
+            print(f"{user}({trades}): ${price}")
+        else:
+            continue
 
-    if float(price) >= 15000:
+    if float(price) >= 15200:
         content = 'The price is now above 15k'
         mail = smtplib.SMTP('smtp.gmail.com', 587)
         mail.ehlo()
@@ -24,6 +32,8 @@ while True:
         mail.login('danieljsocial@gmail.com', 'rlhbjjhdobmorkgn')
         mail.sendmail('danieljsocial@gmail.com', 'daniel11fain@gmail.com', content)
         mail.close()
+
+        time.sleep(180)
     else:
         print(str(datetime.now()))
         time.sleep(60)
