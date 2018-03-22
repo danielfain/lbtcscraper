@@ -21,8 +21,6 @@ while True:
         user = item["data"]["profile"]["username"]
         if user not in blacklist:
             print(f"{user}({trades}): ${price}")
-        else:
-            continue
 
     if float(price) >= 15200:
         content = 'The price is now above 15k'
