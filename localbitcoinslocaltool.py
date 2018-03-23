@@ -2,7 +2,6 @@ import json
 import requests
 import time
 from datetime import datetime
-import smtplib
 import balloon
 
 # Known scammers I don't want to list
@@ -24,6 +23,7 @@ while True:
             print(f"{user}({trades}): ${price}")
 
     if float(price) >= 15000:
+        # Windows notification (found the code on github) (title, message)
         balloon.balloon_tip('Localbitcoins Ebay', 'Price is now above $15,000')
         time.sleep(180)
     else:
