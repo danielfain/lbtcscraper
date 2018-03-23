@@ -20,22 +20,5 @@ while True:
         mail.sendmail('danieljsocial@gmail.com', 'daniel11fain@gmail.com', content)
         mail.close()
 
-    if float(btc_percent_change) > 10:
-        content = "Bitcoin has gained 10% in value"
-        mail = smtplib.SMTP('smtp.gmail.com', 587)
-        mail.ehlo()
-        mail.starttls()
-        mail.login('danieljsocial@gmail.com', 'rlhbjjhdobmorkgn')
-        mail.sendmail('danieljsocial@gmail.com', 'daniel11fain@gmail.com', content)
-        mail.close()
-    elif float(btc_percent_change) < -10:
-        content = "Bitcoin has dropped 10% in value"
-        mail = smtplib.SMTP('smtp.gmail.com', 587)
-        mail.ehlo()
-        mail.starttls()
-        mail.login('danieljsocial@gmail.com', 'rlhbjjhdobmorkgn')
-        mail.sendmail('danieljsocial@gmail.com', 'daniel11fain@gmail.com', content)
-        mail.close()
-
     print(f"Bitcoin: ${btc_price} ({btc_percent_change}%)")
     time.sleep(120)
