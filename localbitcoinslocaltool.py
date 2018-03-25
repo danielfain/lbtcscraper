@@ -5,7 +5,7 @@ from datetime import datetime
 import balloon
 
 # Known scammers I don't want to list
-blacklist = ['GemsBitcoins', 'TechnoTrade']
+blacklist = ['GemsBitcoins', 'TechnoTrade', 'TraderProMagic']
 
 while True:
     r = requests.get("https://localbitcoins.com/sell-bitcoins-online/US/united-states/ebay-gift-card-code/.json")
