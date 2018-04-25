@@ -27,8 +27,8 @@ while True:
         mail = smtplib.SMTP('smtp.gmail.com', 587)
         mail.ehlo()
         mail.starttls()
-        mail.login('danieljsocial@gmail.com', 'rlhbjjhdobmorkgn')
-        mail.sendmail('danieljsocial@gmail.com', 'daniel11fain@gmail.com', content)
+        mail.login('#', '#')
+        mail.sendmail('#', '#', content)
         mail.close()
 
         print("\n")
